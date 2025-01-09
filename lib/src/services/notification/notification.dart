@@ -1,5 +1,7 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:map_test/src/app.dart';
+import 'package:map_test/src/features/map/presentation/ui/favourites.dart';
 
 const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -73,11 +75,19 @@ class NotificationService {
       initializationSettings,
       onDidReceiveNotificationResponse:
           (NotificationResponse notificationResponse) async {
-        // Handle the notification tapped event
         debugPrint(
             'Notification tapped with payload: ${notificationResponse.payload}');
+        _navigateToScreen(notificationResponse);
       },
       onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
+    );
+  }
+
+  Future<void> _navigateToScreen(
+      NotificationResponse notificationResponse) async {
+    Navigator.restorablePushNamed(
+      navigatorKey.currentState!.context,
+      FavoritesScreen.routeName,
     );
   }
 

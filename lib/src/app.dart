@@ -8,6 +8,8 @@ import 'package:map_test/src/features/map/presentation/ui/map.dart';
 import 'features/settings/settings_controller.dart';
 import 'features/settings/settings_view.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           restorationScopeId: 'app',
+          navigatorKey: navigatorKey,
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,

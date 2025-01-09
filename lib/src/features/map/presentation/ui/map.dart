@@ -78,7 +78,9 @@ class _MapScreenState extends State<MapScreen> {
             body: Stack(
               children: [
                 const SafeArea(
-                    minimum: EdgeInsets.only(bottom: 20), child: MapWidget()),
+                  minimum: EdgeInsets.only(bottom: 20),
+                  child: MapWidget(),
+                ),
                 Center(
                   child: AnimatedContainer(
                     margin: EdgeInsets.only(bottom: viewmodel.pinMargin),
@@ -99,7 +101,9 @@ class _MapScreenState extends State<MapScreen> {
                     height: 50,
                     width: MediaQuery.sizeOf(context).width * 0.7,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isDarkMode
+                          ? Colors.black.withOpacity(0.9)
+                          : Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
                         BoxShadow(

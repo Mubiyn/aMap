@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_test/src/features/map/presentation/controllers/map_viewmodel.dart';
 import 'package:map_test/src/features/map/presentation/widgets/map_button.dart';
+import 'package:map_test/src/features/settings/settings_controller.dart';
+import 'package:map_test/src/injection.dart';
 import 'package:map_test/src/services/notification/notification.dart';
 import 'package:provider/provider.dart';
 
@@ -136,7 +138,10 @@ class _MapWidgetState extends State<MapWidget> {
                 Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: locator<SettingsController>().themeMode ==
+                              ThemeMode.dark
+                          ? Colors.grey.withOpacity(0.8)
+                          : Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
                         BoxShadow(

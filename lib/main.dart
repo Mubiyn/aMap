@@ -11,5 +11,8 @@ Future<void> main() async {
   await NotificationService().init();
   await AppInjectionContainer.initialize();
 
-  runApp(MultiProvider(providers: providers, child: const MyApp()));
+  runApp(MultiProvider(
+    providers: providers,
+    child: const MyApp(),
+  ));
 }

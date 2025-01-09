@@ -117,7 +117,7 @@ class MapViewModel extends ChangeNotifier {
     return result;
   }
 
-  determineUserCurrentPosition() async {
+  Future<void> determineUserCurrentPosition() async {
     final Position position;
     bool serviceEnabled;
     LocationPermission permission;
